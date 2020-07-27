@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GOLD</title>
+	<script type="text/javascript">
+		    
+			 function calculate(){
+			var gram=parseInt(document.myform.gram.value);
+			var price=parseInt(document.myform.price.value);
+
+				gram=gram/16.606;
+			var igram=parseInt(gram); 
+		 	var dgram=gram-igram;
+
+		 	var ngram=(dgram*16);
+		 	var i2gram=parseInt(ngram);
+		 	var d2gram=ngram-i2gram;
+
+		 	var fgram=d2gram*8;
+		 	var i3gram=parseInt(fgram);
+		 	
+		 	var total=igram*price+(i2gram*price)/16+(i3gram*price)/128;
+		 		document.getElementById('total').innerHTML=parseInt(total)+'Ks';
+		 		document.getElementById('weight').innerHTML=parseInt(igram)+ 'Kyats'+ parseInt(i2gram)+ 'pae'+ parseInt(i3gram)+'yway';
+		 		
+		 		 		 } 
+		
+	</script>
+</head>
+<body>
+	<h1>Gold Calculation</h1>
+	<form name="myform">
+		Enter Grams:<input type="number" name="gram"><br>
+		Enter Price:<input type="number" name="price"><br>
+		<input type="reset" value="clear">
+		<input type="button"  onclick="calculate()" value="Calculate"><br>
+		Weight:<label id="weight"></label><br>
+		Price:<label id="total"></label>
+	</form>
+</body>
+</html>
